@@ -1,0 +1,30 @@
+# imcdf-lib-spacepy
+Read and work with INTERMAGNET CDF files in Spacepy
+
+
+# ------------------------------------------------------------
+    SpacePy 
+# ------------------------------------------------------------
+
+# A) Prerequisits:
+- install SpacePy and its dependencies
+      (see http://spacepy.lanl.gov/)
+- start python
+
+>>> import spacepy.pycdf as cdf
+
+# B) Reading CDF data:
+
+>>> cdfdata = cdf.CDF("/my/data/files/esk20050101_0000_4.cdf")
+>>> print cdfdata.attrs
+>>> print cdfdata
+
+>>> time = cdfdata['GeomagneticVectorTimes'][...]
+>>> x = cdfdata['GeomagneticFieldX'][...]
+
+
+# C) Visualization
+>>> import matplotlib.pyplot as plt
+
+>>> plt.plot_date(time,x,'-')
+>>> plt.show()
